@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% block body %}
+
+<body>
+    <link rel="stylesheet" href="static/css/style.css">
+    <div class = "card-wrapper">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+            <div class = "img-display">
+                <div class = "img-showcase">
+                    {% for img in cloth.photo_path.split(',')%}
+                        <img src = {{img}} alt = "shoe image">
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class = "img-select">
+            {% if cloth.photo_path.split(',') | length > 1 %}
+                {% for id, img in enumerate(cloth.photo_path.split(',')) %}
+                    <div class = "img-item">
+                        <a href = "#" data-id = {{id+1}}>
+                            <img src = {{img}} alt = "shoe image">
+                        </a>
+                    </div>
+                {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content">
+            <h2 class = "product-title">{{cloth.name}}</h2>
+            <div class = "product-price">
+                <p class = "new-price">New Price: <span>{{cloth.price}} RUB</span></p>
+            </div>
+            <div class = "product-detail">
+                <h2>about this item: </h2>
+                <p>{{cloth.description}}</p>
+                <ul>
+                    <li>Count: <span>{{cloth.count}} </span></li>
+                    <li>Shipping Area: <span>Russia</span></li>
+                    <li>Shipping Fee: <span>Free</span></li>
+                </ul>
+            </div>
+
+            <div class = "purchase-info">
+                <button onclick="window.history.back()"
+                
+                вtype = "button" class = "btn">
+                    Back <i class = "fas fa-shopping-cart"></i>
+                </button>
+                <button type = "button" class = "btn">Compare</button>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <script src="static/js/app.js"></script>
+  </body>
+{% endblock body %}

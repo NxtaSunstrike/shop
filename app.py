@@ -5,7 +5,7 @@ from aiogram import Bot,Dispatcher
 from bot.handlers import admin, user, payment
 from bot.databases.base import async_main
 
-from bot.web_apps.shop.app import alive
+from bot.web_apps.shop.main import alive
 from bot.commands.shop_com import setup_bot_commands
 from bot.middlewares.check_in import CheckSubs
 
